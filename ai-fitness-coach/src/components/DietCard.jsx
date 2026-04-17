@@ -1,7 +1,7 @@
 import Navbar from "../components/Navbar";
 import DietCard from "../components/DietCard";
 import { useEffect, useState } from "react";
-import { motion } from "framer-motion";
+
 
 const Diet = () => {
   const [diets, setDiets] = useState([]);
@@ -11,7 +11,7 @@ const Diet = () => {
       try {
         const token = localStorage.getItem("token");
 
-        const res = await fetch("http://localhost:5000/api/diet", {
+        const res = await fetch(`${import.meta.env.VITE_API_URL}/api/diet`, {
           headers: {
             Authorization: `Bearer ${token}`,
           },

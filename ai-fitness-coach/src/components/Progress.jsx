@@ -10,7 +10,7 @@ const Progress = () => {
   const token = localStorage.getItem("token");
 
   const addProgress = async () => {
-    await fetch("http://localhost:5000/api/progress", {
+    await fetch(`${import.meta.env.VITE_API_URL}/api/progress`, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -22,7 +22,7 @@ const Progress = () => {
 
   useEffect(() => {
     const fetchProgress = async () => {
-      const res = await fetch("http://localhost:5000/api/progress", {
+      const res = await fetch(`${import.meta.env.VITE_API_URL}/api/progress`, {
         headers: {
           Authorization: `Bearer ${token}`,
         },
